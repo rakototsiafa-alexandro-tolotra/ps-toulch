@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: herasoan <herasoan@student.42antananari    +#+  +:+       +#+        */
+/*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:08:44 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 10:08:44 by herasoan         ###   ########.fr       */
+/*   Updated: 2026/03/18 11:49:52 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // La stratégie Simple (Tri par sélection adapté)
-void sort_simple(t_node **a, t_node **b)
+void sort_simple(t_list **a, t_list **b)
 {
     int size;
     int min_pos;
@@ -22,7 +22,6 @@ void sort_simple(t_node **a, t_node **b)
     while (size > 0)
     {
         min_pos = get_min_position(*a);
-
         // Si le minimum est dans la première moitié, on tourne vers le haut (ra)
         if (min_pos <= size / 2)
         {
