@@ -6,14 +6,14 @@
 /*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:09:18 by arakotot          #+#    #+#             */
-/*   Updated: 2026/03/18 14:09:19 by arakotot         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:26:56 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Étape 1 : Pousser dans B par blocs
-static void push_chunks_to_b(t_list **a, t_list **b, int chunk_size)
+static void push_chunks_to_b(t_node **a, t_node **b, int chunk_size)
 {
     int pushed;
     
@@ -42,7 +42,7 @@ static void push_chunks_to_b(t_list **a, t_list **b, int chunk_size)
 }
 
 // Étape 2 : Ramener de B vers A du plus grand au plus petit
-static void push_max_to_a(t_list **a, t_list **b)
+static void push_max_to_a(t_node **a, t_node **b)
 {
     int max_pos;
     int size;
@@ -68,7 +68,7 @@ static void push_max_to_a(t_list **a, t_list **b)
 }
 
 // La fonction principale O(n racine de n) "chunks"
-void sort_medium(t_list **a, t_list **b)
+void sort_medium(t_node **a, t_node **b)
 {
     int size;
     int chunk_size;

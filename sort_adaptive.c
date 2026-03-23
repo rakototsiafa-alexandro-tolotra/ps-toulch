@@ -6,14 +6,14 @@
 /*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:08:39 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 11:29:21 by arakotot         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:26:45 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Le chef d'orchestre du mode adaptatif
-void sort_adaptive(t_list **a, t_list **b)
+void sort_adaptive(t_node **a, t_node **b)
 {
     double disorder;
 

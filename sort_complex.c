@@ -24,7 +24,7 @@ static int get_max_bits(int max_index)
 }
 
 // L'algorithme Radix Sort adapté pour push_swap (O(n log n))
-void sort_complex(t_list **a, t_list **b)
+void sort_complex(t_node **a, t_node **b)
 {
     int size;
     int max_bits;

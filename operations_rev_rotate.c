@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   operations_rev_rotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: herasoan <herasoan@student.42antananari    +#+  +:+       +#+        */
+/*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:08:01 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 10:08:01 by herasoan         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:26:10 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void rev_rotate(t_list **stack)
+void rev_rotate(t_node **stack)
 {
-    t_list *prev;
-    t_list *last;
+    t_node *prev;
+    t_node *last;
 
     if (!stack || !*stack || !(*stack)->next)
         return;
@@ -33,19 +33,19 @@ void rev_rotate(t_list **stack)
     *stack = last;             // Le dernier devient officiellement le 1er
 }
 
-void rra(t_list **a)
+void rra(t_node **a)
 {
     rev_rotate(a);
     ft_printf("rra\n");
 }
 
-void rrb(t_list **b)
+void rrb(t_node **b)
 {
     rev_rotate(b);
     ft_printf("rrb\n");
 }
 
-void rrr(t_list **a, t_list **b)
+void rrr(t_node **a, t_node **b)
 {
     rev_rotate(a);
     rev_rotate(b);

@@ -52,7 +52,7 @@ all: $(LIBFT) $(PRINTF) $(NAME)
 $(LIBFT):
 	@make -C $(LIBFT_DIR)
 
-$(PRINTF):ù
+$(PRINTF):
 	@make -C $(PRINTF_DIR)
 
 $(NAME): $(OBJS)

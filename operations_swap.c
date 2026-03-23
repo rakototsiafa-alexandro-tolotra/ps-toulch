@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   operations_swap.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: herasoan <herasoan@student.42antananari    +#+  +:+       +#+        */
+/*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:08:11 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 10:08:13 by herasoan         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:26:22 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Le moteur logique
-void swap(t_list **stack)
+void swap(t_node **stack)
 {
-    t_list *first;
-    t_list *second;
+    t_node *first;
+    t_node *second;
 
     if (!stack || !*stack || !(*stack)->next)
         return;
@@ -29,19 +29,19 @@ void swap(t_list **stack)
 }
 
 // Les commandes qui utilisent le moteur et impriment
-void sa(t_list **a)
+void sa(t_node **a)
 {
     swap(a);
     ft_printf("sa\n");
 }
 
-void sb(t_list **b)
+void sb(t_node **b)
 {
     swap(b);
     ft_printf("sb\n");
 }
 
-void ss(t_list **a, t_list **b)
+void ss(t_node **a, t_node **b)
 {
     swap(a);
     swap(b);

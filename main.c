@@ -14,7 +14,7 @@
 
 // Fonction cruciale : Vérifie si la pile est déjà parfaitement triée
 // Retourne 1 si triée, 0 sinon.
-static int  is_sorted(t_list *stack)
+static int  is_sorted(t_node *stack)
 {
     if (!stack)
         return (1);
@@ -30,8 +30,8 @@ static int  is_sorted(t_list *stack)
 // Le chef d'orchestre du programme
 int main(int argc, char **argv)
 {
-    t_list  *stack_a;
-    t_list  *stack_b;
+    t_node  *stack_a;
+    t_node  *stack_b;
 
     // 1. Quitte silencieusement si pas d'argument ou argument vide
     if (argc == 1 || (argc == 2 && !argv[1][0]))

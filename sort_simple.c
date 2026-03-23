@@ -6,14 +6,14 @@
 /*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:08:44 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 14:04:35 by arakotot         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:27:00 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // La stratégie Simple (Tri par sélection adapté)
-void sort_simple(t_list **a, t_list **b)
+void sort_simple(t_node **a, t_node **b)
 {
     int size;
     int min_pos;

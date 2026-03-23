@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   operations_push.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: herasoan <herasoan@student.42antananari    +#+  +:+       +#+        */
+/*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:07:55 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 10:07:57 by herasoan         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:26:05 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push(t_list **src, t_list **dest)
+void push(t_node **src, t_node **dest)
 {
-    t_list *temp;
+    t_node *temp;
 
     if (!src || !*src)
         return;
@@ -25,13 +25,13 @@ void push(t_list **src, t_list **dest)
     *dest = temp;        // Met à jour le pointeur dest
 }
 
-void pa(t_list **b, t_list **a)
+void pa(t_node **b, t_node **a)
 {
     push(b, a);
     ft_printf("pa\n");
 }
 
-void pb(t_list **a, t_list **b)
+void pb(t_node **a, t_node **b)
 {
     push(a, b);
     ft_printf("pb\n");

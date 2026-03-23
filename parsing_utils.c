@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: herasoan <herasoan@student.42antananari    +#+  +:+       +#+        */
+/*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:08:16 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 10:08:22 by herasoan         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:26:26 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ long ft_atol(const char *str)
 }
 
 // Parcours la pile pour vérifier s'il y a un doublon
-int check_duplicate(t_list *a, int n)
+int check_duplicate(t_node *a, int n)
 {
     if (!a)
         return (0);

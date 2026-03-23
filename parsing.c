@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: herasoan <herasoan@student.42antananari    +#+  +:+       +#+        */
+/*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:08:27 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 10:58:09 by herasoan         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:26:32 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_exit(t_list **a, char **matrix, int is_split)
+static void	check_exit(t_node **a, char **matrix, int is_split)
 {
 	if (is_split)
 		error_exit(a, matrix);
@@ -20,7 +20,7 @@ static void	check_exit(t_list **a, char **matrix, int is_split)
 		error_exit(a, NULL);
 }
 // Traite un tableau de chaînes (issu de argv ou de ft_split)
-static void process_strings(t_list **a, char **matrix, int is_split)
+static void process_strings(t_node **a, char **matrix, int is_split)
 {
 	int     i;
 	long    nb;
@@ -41,7 +41,7 @@ static void process_strings(t_list **a, char **matrix, int is_split)
 }
 
 // Fonction principale appelée par le main
-void parse_arguments(t_list **a, int argc, char **argv)
+void parse_arguments(t_node **a, int argc, char **argv)
 {
 	char    **matrix;
 	int     i;

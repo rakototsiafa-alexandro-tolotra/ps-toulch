@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: herasoan <herasoan@student.42antananari    +#+  +:+       +#+        */
+/*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:07:30 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 10:07:33 by herasoan         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:25:50 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Calcule le taux de désordre entre 0.0 et 1.0
-double compute_disorder(t_list *stack_a)
+double compute_disorder(t_node *stack_a)
 {
-    t_list  *i;
-    t_list  *j;
+    t_node  *i;
+    t_node  *j;
     double  mistakes;
     double  total_pairs;
 

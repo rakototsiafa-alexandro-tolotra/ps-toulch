@@ -6,14 +6,14 @@
 /*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:09:43 by arakotot          #+#    #+#             */
-/*   Updated: 2026/03/18 14:09:44 by arakotot         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:27:13 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Compte le nombre total d'éléments dans une pile
-int get_stack_size(t_list *stack)
+int get_stack_size(t_node *stack)
 {
     int size;
 
@@ -27,7 +27,7 @@ int get_stack_size(t_list *stack)
 }
 
 // Trouve la position de l'index le plus grand
-int get_max_pos(t_list *stack)
+int get_max_pos(t_node *stack)
 {
     int max_idx;
     int current_pos;
@@ -49,8 +49,8 @@ int get_max_pos(t_list *stack)
     return (max_pos);
 }
 
-// Trouve la position (index dans la liste) de la valeur minimale
-int get_min_pos(t_list *stack)
+// Trouve la position (index dans la nodee) de la valeur minimale
+int get_min_pos(t_node *stack)
 {
     int     min_value;
     int     min_pos;
@@ -75,10 +75,10 @@ int get_min_pos(t_list *stack)
 }
 
 // Attribue un index (0 à N-1) à chaque nœud
-void index_stack(t_list *stack)
+void index_stack(t_node *stack)
 {
-    t_list  *current;
-    t_list  *compare;
+    t_node  *current;
+    t_node  *compare;
     int     index;
 
     current = stack;

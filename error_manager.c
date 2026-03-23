@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   error_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: herasoan <herasoan@student.42antananari    +#+  +:+       +#+        */
+/*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:07:38 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 10:07:42 by herasoan         ###   ########.fr       */
+/*   Updated: 2026/03/23 18:25:55 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Libère chaque noeud de la pile
-void free_stack(t_list **stack)
+void free_stack(t_node **stack)
 {
-    t_list *tmp;
+    t_node *tmp;
 
     if (!stack || !*stack)
         return;
@@ -45,7 +45,7 @@ void free_matrix(char **matrix)
 }
 
 // Nettoie tout et quitte proprement
-void error_exit(t_list **a, char **matrix)
+void error_exit(t_node **a, char **matrix)
 {
     if (a && *a)
         free_stack(a);
