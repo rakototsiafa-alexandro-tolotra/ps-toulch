@@ -6,7 +6,7 @@
 /*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:08:44 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/18 11:49:52 by arakotot         ###   ########.fr       */
+/*   Updated: 2026/03/18 14:04:35 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void sort_simple(t_list **a, t_list **b)
     size = get_stack_size(*a);
     while (size > 0)
     {
-        min_pos = get_min_position(*a);
+        min_pos = get_min_pos(*a);
         // Si le minimum est dans la première moitié, on tourne vers le haut (ra)
         if (min_pos <= size / 2)
         {
