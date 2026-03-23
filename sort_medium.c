@@ -6,85 +6,125 @@
 /*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:09:18 by arakotot          #+#    #+#             */
-/*   Updated: 2026/03/23 18:26:56 by arakotot         ###   ########.fr       */
+/*   Updated: 2026/03/23 22:47:56 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Étape 1 : Pousser dans B par blocs
-static void push_chunks_to_b(t_node **a, t_node **b, int chunk_size)
+static int	get_max_val_pos(t_node *stack)
 {
-    int pushed;
-    
-    pushed = 0;
-    while (*a)
-    {
-        // Si l'élément fait partie de la première moitié du bloc actuel
-        if ((*a)->index <= pushed)
-        {
-            pb(a, b);
-            rb(b); // On l'envoie au fond de B pour laisser la place aux plus grands
-            pushed++;
-        }
-        // Si l'élément fait partie de la deuxième moitié du bloc
-        else if ((*a)->index <= pushed + chunk_size)
-        {
-            pb(a, b);
-            pushed++;
-        }
-        // Pas dans le bloc, on passe au suivant
-        else
-        {
-            ra(a);
-        }
-    }
+	int		max_val;
+	int		max_pos;
+	int		cur_pos;
+
+	if (!stack)
+		return (0);
+	max_val = stack->value;
+	max_pos = 0;
+	cur_pos = 0;
+	while (stack)
+	{
+		if (stack->value > max_val)
+		{
+			max_val = stack->value;
+			max_pos = cur_pos;
+		}
+		cur_pos++;
+		stack = stack->next;
+	}
+	return (max_pos);
 }
 
-// Étape 2 : Ramener de B vers A du plus grand au plus petit
-static void push_max_to_a(t_node **a, t_node **b)
+static void	rotate_to_chunk(t_node **a, int lower, int upper, int size)
 {
-    int max_pos;
-    int size;
+	int	rotations;
 
-    while (*b)
-    {
-        max_pos = get_max_pos(*b);
-        size = get_stack_size(*b);
-        
-        if (max_pos <= size / 2)
-        {
-            while (max_pos-- > 0)
-                rb(b);
-        }
-        else
-        {
-            max_pos = size - max_pos;
-            while (max_pos-- > 0)
-                rrb(b);
-        }
-        pa(b, a);
-    }
+	rotations = 0;
+	while (((*a)->index < lower || (*a)->index > upper) && rotations < size)
+	{
+		ra(a);
+		rotations++;
+	}
 }
 
-// La fonction principale O(n racine de n) "chunks"
-void sort_medium(t_node **a, t_node **b)
+static void	update_bounds(int *lower, int *upper, int chunk_size, int size)
 {
-    int size;
-    int chunk_size;
+	*lower = *upper + 1;
+	*upper += chunk_size;
+	if (*upper >= size)
+		*upper = size - 1;
+}
 
-    // 1. On indexe la pile (ultra rapide en mémoire)
-    index_stack(*a);
-    
-    size = get_stack_size(*a);
-    
-    // 2. On définit la taille du bloc en racine carrée (multipliée par un petit facteur pour optimiser)
-    chunk_size = ft_sqrt(size) * 1.5;
-    
-    if (chunk_size < 1)
-        chunk_size = 1;
+static void	push_with_rb(t_node **a, t_node **b, int lower, int upper)
+{
+	int	mid;
 
-    // 3. On exécute l'algorithme
-    push_chunks_to_b(a, b, chunk_size);
-    push_max_to_a(a, b);
+	mid = lower + (upper - lower) / 2;
+	pb(a, b);
+	if ((*b)->index <= mid && (*b)->next)
+		rb(b);
+}
+
+static void	push_chunks_to_b(t_node **a, t_node **b, int size, int chunk_size)
+{
+	int	pushed;
+	int	lower;
+	int	upper;
+
+	pushed = 0;
+	lower = 0;
+	upper = chunk_size - 1;
+	if (upper >= size)
+		upper = size - 1;
+	while (pushed < size)
+	{
+		rotate_to_chunk(a, lower, upper, size);
+		if ((*a)->index >= lower && (*a)->index <= upper)
+		{
+			push_with_rb(a, b, lower, upper);
+			pushed++;
+			if (pushed % chunk_size == 0 || pushed >= size)
+				update_bounds(&lower, &upper, chunk_size, size);
+		}
+	}
+}
+
+static void	push_max_to_a(t_node **a, t_node **b)
+{
+	int	max_pos;
+	int	size;
+	int	steps;
+
+	while (*b)
+	{
+		max_pos = get_max_val_pos(*b);
+		size = get_stack_size(*b);
+		if (max_pos <= size / 2)
+		{
+			while (max_pos-- > 0)
+				rb(b);
+		}
+		else
+		{
+			steps = size - max_pos;
+			while (steps-- > 0)
+				rrb(b);
+		}
+		pa(b, a);
+	}
+}
+
+void	sort_medium(t_node **a, t_node **b)
+{
+	int	size;
+	int	chunk_size;
+
+	index_stack(*a);
+	size = get_stack_size(*a);
+	chunk_size = ft_sqrt(size) * 2;
+	if (chunk_size < 3)
+		chunk_size = 3;
+	push_chunks_to_b(a, b, size, chunk_size);
+	push_max_to_a(a, b);
 }
