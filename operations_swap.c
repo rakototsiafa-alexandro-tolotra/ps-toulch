@@ -6,7 +6,7 @@
 /*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 10:08:11 by herasoan          #+#    #+#             */
-/*   Updated: 2026/03/23 18:26:22 by arakotot         ###   ########.fr       */
+/*   Updated: 2026/03/24 00:30:09 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void swap(t_node **stack)
     t_node *second;
 
     if (!stack || !*stack || !(*stack)->next)
-        return;
+        return ;
     first = *stack;
     second = first->next;
 

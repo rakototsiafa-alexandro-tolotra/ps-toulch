@@ -6,57 +6,57 @@
 /*   By: arakotot <arakotot@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 14:09:43 by arakotot          #+#    #+#             */
-/*   Updated: 2026/03/23 18:27:13 by arakotot         ###   ########.fr       */
+/*   Updated: 2026/03/24 06:00:40 by arakotot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Compte le nombre total d'éléments dans une pile
-int get_stack_size(t_node *stack)
+int	get_stack_size(t_node *stack)
 {
-    int size;
+	int	size;
 
-    size = 0;
-    while (stack)
-    {
-        size++;
-        stack = stack->next;
-    }
-    return (size);
+	size = 0;
+	while (stack)
+	{
+		size++;
+		stack = stack->next;
+	}
+	return (size);
 }
 
 // Trouve la position de l'index le plus grand
-int get_max_pos(t_node *stack)
+int	get_max_pos(t_node *stack)
 {
-    int max_idx;
-    int current_pos;
-    int max_pos;
+	int	max_idx;
+	int	current_pos;
+	int	max_pos;
 
-    max_idx = -1;
-    current_pos = 0;
-    max_pos = 0;
-    while (stack)
-    {
-        if (stack->index > max_idx)
-        {
-            max_idx = stack->index;
-            max_pos = current_pos;
-        }
-        current_pos++;
-        stack = stack->next;
-    }
-    return (max_pos);
+	max_idx = -1;
+	current_pos = 0;
+	max_pos = 0;
+	while (stack)
+	{
+		if (stack->index > max_idx)
+		{
+			max_idx = stack->index;
+			max_pos = current_pos;
+		}
+		current_pos++;
+		stack = stack->next;
+	}
+	return (max_pos);
 }
 
 // Trouve la position (index dans la nodee) de la valeur minimale
-int get_min_pos(t_node *stack)
+int	get_min_pos(t_node *stack)
 {
-    int     min_value;
-    int     min_pos;
-    int     current_pos;
+	int     min_value;
+	int     min_pos;
+	int     current_pos;
 
-    if (!stack)
+	if (!stack)
         return (-1);
     min_value = stack->value;
     min_pos = 0;
